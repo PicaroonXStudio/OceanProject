@@ -183,11 +183,9 @@ void ATimeManager::IncrementTime(float deltaTime)
 	    }
 
 	double increment = deltaTime * TimeScaleMultiplier;
-	double millisec = FMath::Frac(increment) * 1000;
-	double microsec = FMath::Frac(millisec) * 1000;
+	double nanosec = FMath::Frac(increment) * 1000000;
 
-	InternalTime = InternalTime + FTimespan(0, 0, 0, FPlatformMath::FloorToInt(increment),
-		FPlatformMath::FloorToInt(millisec), FPlatformMath::FloorToInt(microsec));
+	InternalTime = InternalTime + FTimespan(0, 0, 0, FPlatformMath::FloorToInt(increment), FPlatformMath::FloorToInt(nanosec));
 
 	if (CurrentLocalTime.Day != InternalTime.GetDay())
 	    {

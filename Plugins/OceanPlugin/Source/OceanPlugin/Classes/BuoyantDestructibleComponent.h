@@ -21,6 +21,7 @@
 #pragma once
 
 #include "OceanManager.h"
+#include "DestructibleComponent.h"
 #include "OceanPluginPrivatePCH.h"
 #include "BuoyantDestructibleComponent.generated.h"
 
